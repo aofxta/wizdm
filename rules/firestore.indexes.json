@@ -1,6 +1,48 @@
 {
   "indexes": [
     {
+      "collectionGroup": "conversations",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "recipients",
+          "arrayConfig": "CONTAINS"
+        },
+        {
+          "fieldPath": "created",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "conversations",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "recipients",
+          "arrayConfig": "CONTAINS"
+        },
+        {
+          "fieldPath": "updated",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "feed",
+      "queryScope": "COLLECTION_GROUP",
+      "fields": [
+        {
+          "fieldPath": "tags",
+          "arrayConfig": "CONTAINS"
+        },
+        {
+          "fieldPath": "created",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
       "collectionGroup": "messages",
       "queryScope": "COLLECTION",
       "fields": [
@@ -10,21 +52,21 @@
         },
         {
           "fieldPath": "created",
-          "order": "DESCENDING"
+          "order": "ASCENDING"
         }
       ]
     },
     {
-      "collectionGroup": "shared",
-      "queryScope": "COLLECTION_GROUP",
+      "collectionGroup": "users",
+      "queryScope": "COLLECTION",
       "fields": [
         {
-          "fieldPath": "public",
-          "order": "ASCENDING"
+          "fieldPath": "searchIndex",
+          "arrayConfig": "CONTAINS"
         },
         {
-          "fieldPath": "created",
-          "order": "DESCENDING"
+          "fieldPath": "fullName",
+          "order": "ASCENDING"
         }
       ]
     }
@@ -49,8 +91,26 @@
       ]
     },
     {
-      "collectionGroup": "projects",
-      "fieldPath": "content",
+      "collectionGroup": "users",
+      "fieldPath": "bio",
+      "indexes": [
+        {
+          "order": "ASCENDING",
+          "queryScope": "COLLECTION"
+        },
+        {
+          "order": "DESCENDING",
+          "queryScope": "COLLECTION"
+        },
+        {
+          "arrayConfig": "CONTAINS",
+          "queryScope": "COLLECTION"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "users",
+      "fieldPath": "motto",
       "indexes": [
         {
           "order": "ASCENDING",
